@@ -6,6 +6,7 @@ import tech.backend.agregadorinvestimentos.entity.User;
 import tech.backend.agregadorinvestimentos.repositories.UserRepository;
 
 import java.time.Instant;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -32,6 +33,10 @@ public class UserService {
 
     public Optional<User> getUserById(String userId) {
        return userRepository.findById(Long.parseLong(userId));
+    }
+
+    public List<User> listUsers() {
+       return userRepository.findAll();
     }
 
 }
