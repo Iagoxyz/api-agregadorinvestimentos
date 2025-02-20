@@ -6,7 +6,7 @@ import tech.backend.agregadorinvestimentos.entity.User;
 import tech.backend.agregadorinvestimentos.repositories.UserRepository;
 
 import java.time.Instant;
-import java.util.UUID;
+import java.util.Optional;
 
 @Service
 public class UserService {
@@ -28,6 +28,10 @@ public class UserService {
 
         var userSaved = userRepository.save(entity);
         return userSaved.getUserId();
+    }
+
+    public Optional<User> getUserById(String userId) {
+       return userRepository.findById(Long.parseLong(userId));
     }
 
 }
